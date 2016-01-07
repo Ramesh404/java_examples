@@ -1,0 +1,25 @@
+package com.ramesh;
+class 3D
+   {
+  static int x;
+  static int y;;
+   int z;
+   }
+class 2D
+   {
+void static 2D(int x,int y,int z)
+  {
+this.x=x;
+this.y=y;
+this.z=z;
+System.out.println(x+" "+y+" "+.z);
+   }
+   }
+class Point
+  {
+public static void masin(String[] args)
+  {
+2D d=new 2D(10,20,30);
+d.2D();
+  }
+  }
