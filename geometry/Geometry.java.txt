@@ -1,0 +1,71 @@
+
+
+abstract class Shape
+   {
+	abstract void area(int a,int b);
+	abstract void perimeter(int a,int b,int c);
+   }
+ class Triangle extends Shape
+   {
+	
+	void area(int a, int b)
+	   {
+		int area=a*b/2;
+		
+		System.out.println("Area of a triangle: "+  area);
+		
+	   }
+	void perimeter(int a, int b,int c)
+	   {
+		int perimeter=a+b+c;
+		System.out.println("Perimeter of a Triangle: "+ perimeter);
+	   }
+	
+	
+	
+	
+	}
+
+class Rectangle extends Shape
+{
+	void area(int a ,int b)
+	{
+		int area=a*b;
+		System.out.println("Area of a Rectangle: " +area);
+	}
+	void perimeter(int a,int b,int c)
+	{
+		int f=a+b;
+		int perimeter=(int) 2f;
+		System.out.println("Perimeter of a Rectangle: "+ perimeter);
+	}
+	
+	
+}
+class Square extends Rectangle
+{
+	Square(int a)
+	{
+		int perimeter=a*a*a*a;
+		int area=a*a;
+		System.out.println("Perimeter of a Square: "+ perimeter);
+		System.out.println("Area of a Square: "+ area);
+}
+}
+
+public  class Geometry {
+
+	public static void main(String[] args) {
+		Triangle t=new Triangle();
+		t.area(10,20);
+		t.perimeter(10,20, 0);
+		Rectangle r=new Rectangle();
+		r.area(10,20);
+		r.perimeter(10,20,30);
+		Square s=new Square(10);
+		
+	}
+
+}
+
+				
