@@ -1,0 +1,77 @@
+package com.aop;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+abstract class Shape
+{
+	abstract String validity(List<Map<String,Integer>> list);
+}
+class Triangle extends Shape
+{
+	static int no_of_coordinates=3;
+	Triangle()
+	{
+		List<Map<String,Integer>> list=new ArrayList<Map<String,Integer>>();
+		for(int i=0;i<no_of_coordinates;i++)
+		{
+
+			Scanner s=new Scanner((System.in));
+			System.out.println("Enter "+(i+1)+" co-ordinate values");
+			System.out.println("Enter X");
+			int xvalue=s.nextInt();
+			System.out.println("Enter Y");
+			int yvalue=s.nextInt();
+			
+			HashMap<String,Integer> hm=new HashMap<String,Integer>();
+			hm.put("x-cordinate", xvalue);
+			hm.put("y-cordinate", yvalue);
+			list.add(hm);
+		}
+		System.out.println("call rsult "+validity(list));
+	}
+	
+	
+	String validity(List<Map<String,Integer>> li) {
+		// TODO Auto-generated method stub
+		String status="";
+		List<Integer> allXvalues=new ArrayList<Integer>();
+		List<Integer> allYvalues =new ArrayList<Integer>();
+		
+		for (Map<String, Integer> map : li) {
+			allXvalues.add(map.get("x-cordinate"));
+			allYvalues.add(map.get("y-cordinate"));
+		}
+		double distance1=calcDistance(allXvalues.get(0),allYvalues.get(0) , allXvalues.get(1), allYvalues.get(1));
+		double distance2=calcDistance(allXvalues.get(0),allYvalues.get(0) , allXvalues.get(2), allYvalues.get(2));
+		double distance3=calcDistance(allXvalues.get(1),allYvalues.get(1) , allXvalues.get(2), allYvalues.get(2));
+		System.out.println(distance1 +" and "+distance2+" and" +distance3);
+			if(distance1+distance2==distance3)
+				status= "Its Right angle Triangle";
+			else if(distance1+distance3==distance2)
+				status= "Its Right angle Triangle";
+			else if(distance3+distance2==distance1)
+				status= "Its Right angle Triangle";
+			else 
+				status= "Its not a Right Angel Trinagle";
+		return status;
+
+	}
+	public double calcDistance(int x1, int y1, int x2, int y2)
+    {
+       double result= Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
+       return result;
+    }
+
+}
+public class CheckIsTriangleOrNot {
+
+	public static void main(String[] args) {
+		Triangle t=new Triangle();
+
+	}
+
+}
